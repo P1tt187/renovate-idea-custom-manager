@@ -20,7 +20,7 @@
     ideaUltimate: {
       defaultRegistryUrlTemplate: "https://data.services.jetbrains.com/products?code=IIU&release.type=release",
       "transformTemplates": [
-        "{\"releases\": $.releases@$release.{ \"version\":$release.version,\"changelogUrl\":$release.notesLink }, \"homepage\": \"https://www.jetbrains.com/idea\"}"
+        "{\"releases\": $.releases@$release.{ \"version\":$release.version,\"changelogUrl\": $release.notesLink ? $release.notesLink : undefined }, \"homepage\": \"https://www.jetbrains.com/idea\"}"
       ]
     }
   }
