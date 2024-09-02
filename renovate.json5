@@ -11,7 +11,7 @@
         ".+\\.ya?ml$"
       ],
       matchStrings: [
-        "#\\s*renovate: datasource=(?<datasource>.*?) depName=(?<depName>.*?)( versioning=(?<versioning>.*?))?\\s.*?_version\\s*:\\s*(\"|')(?<currentValue>.*)(\"|')"
+        "#\\s*renovate: datasource=(?<datasource>.*?) depName=(?<depName>.*?)( versioning=(?<versioning>.*?))?\\s.*?_version\\s*:\\s*(\"|')?(?<currentValue>.*)(\"|')?"
       ],
       "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{/if}}"
     }
