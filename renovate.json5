@@ -27,7 +27,7 @@
     jetbrainsProduct: {
       defaultRegistryUrlTemplate: "https://data.services.jetbrains.com/products?code={{packageName}}&release.type=release",
       "transformTemplates": [
-        "{\"releases\": $.releases@$release.{ \"version\":$release.version,\"changelogUrl\": $release.notesLink ? $release.notesLink : undefined }, \"homepage\": \"https://www.jetbrains.com\"}"
+        "{\"releases\": $.releases@$release.{ \"version\":$release.version,\"changelogUrl\": $release.notesLink ? $release.notesLink : undefined }, \"homepage\": $.link}"
       ]
     }
   }
