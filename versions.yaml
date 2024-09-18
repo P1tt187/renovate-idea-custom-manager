@@ -1,6 +1,6 @@
 
 # renovate: datasource=custom.jetbrainsProduct depName=IIU versioning=maven
-idea_version: "2024.1.4"
+idea_version: "2024.2.2"
 
 # renovate: datasource=custom.jetbrainsProduct depName=PS versioning=maven
 php_storm_version: 2023.1.2
