@@ -6,29 +6,28 @@
   ],
   customManagers: [
     {
-      customType: "regex",
-      fileMatch: [
-        ".+\\.ya?ml$"
+      customType: 'regex',
+      managerFilePatterns: [
+        '/.+\\.ya?ml$/',
       ],
       matchStrings: [
-        "#\\s*renovate: datasource=(?<datasource>.*?) depName=(?<depName>.*?)( versioning=(?<versioning>.*?))?\\s[a-z_]+_version\\s*:\\s*(\"|')?(?<currentValue>[^\"'\\s]*)(?:\"|')?"
+        '#\\s*renovate: datasource=(?<datasource>.*?) depName=(?<depName>.*?)( versioning=(?<versioning>.*?))?\\s[a-z_]+_version\\s*:\\s*("|\')?(?<currentValue>[^"\'\\s]*)(?:"|\')?',
       ],
-      "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{/if}}"
-    }
+      versioningTemplate: '{{#if versioning}}{{{versioning}}}{{/if}}',
+    },
   ],
   customDatasources: {
     ideaUltimate: {
-      defaultRegistryUrlTemplate: "https://data.services.jetbrains.com/products?code=IIU&release.type=release",
-      "transformTemplates": [
-        "{\"releases\": $.releases@$release.{ \"version\":$release.version,\"changelogUrl\": $release.notesLink ? $release.notesLink : undefined }, \"homepage\": \"https://www.jetbrains.com/idea\"}"
-      ]
+      defaultRegistryUrlTemplate: 'https://data.services.jetbrains.com/products?code=IIU&release.type=release',
+      transformTemplates: [
+        '{"releases": $.releases@$release.{ "version":$release.version,"changelogUrl": $release.notesLink ? $release.notesLink : undefined }, "homepage": "https://www.jetbrains.com/idea"}',
+      ],
     },
-    // vollständige liste unter # curl -s "https://data.services.jetbrains.com/products?release.type=release"  | jq '.[] | "\(.code) -> \(.name)"'
     jetbrainsProduct: {
-      defaultRegistryUrlTemplate: "https://data.services.jetbrains.com/products?code={{packageName}}&release.type=release",
-      "transformTemplates": [
-        "{\"releases\": $.releases@$release.{ \"version\":$release.version,\"changelogUrl\": $release.notesLink ? $release.notesLink : undefined }, \"homepage\": $.link}"
-      ]
-    }
-  }
+      defaultRegistryUrlTemplate: 'https://data.services.jetbrains.com/products?code={{packageName}}&release.type=release',
+      transformTemplates: [
+        '{"releases": $.releases@$release.{ "version":$release.version,"changelogUrl": $release.notesLink ? $release.notesLink : undefined }, "homepage": $.link}',
+      ],
+    },
+  },
 }
