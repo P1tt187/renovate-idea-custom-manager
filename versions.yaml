@@ -3,4 +3,4 @@
 idea_version: "2025.1.3"
 
 # renovate: datasource=custom.jetbrainsProduct depName=PS versioning=maven
-php_storm_version: 2025.1.2
+php_storm_version: 2025.1.3
